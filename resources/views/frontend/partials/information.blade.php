@@ -37,7 +37,6 @@
                     JGTC 2018 SITEPLAN
                 </h3>
                 <div class="text-center">
-                    @if(count($siteplan1)>0 && count($siteplan2)>0)
                     <div class="tab-container">
                         <nav class="block tab-nav">
                             <ul class="list-nostyle">
@@ -62,9 +61,9 @@
                             </div>
                         </div>
                     </div>
-                    @else
+                    
                     <img src="{{ asset('frontend/assets/img/blank.png') }}" alt="" class="item-heavy" data-original="{{ asset('frontend/assets/img/site-plan-soon.png') }}">
-                    @endif
+                    
                 </div>
             </div>
             <div class="mb-16">
