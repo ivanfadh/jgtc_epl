@@ -15,9 +15,9 @@ class PerformerScheduleController extends BackendController
      * @param  PerformerSchedule $_baseModel
      * @return void
      */
-    public function __construct(PerformerScheduleRepository $_baseRepo, PerformerSchedule $_baseModel)
+    public function __construct(PerformerScheduleRepository $baseRepo, PerformerSchedule $baseModel)
     {
-        parent::__construct($_baseRepo, $_baseModel, 'schedule');
+        parent::__construct($baseRepo, $baseModel, 'schedule');
         $this->routeBaseName = "backend.performerschedule";
         $this->routeDefaultIndex = "backend.schedule.show";
         $this->viewBaseClosure = "backend.admin.performerschedules";

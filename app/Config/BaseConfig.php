@@ -30,12 +30,6 @@ class BaseConfig
                             'icon' => 'fa fa-dashboard',
                             'roles' => ['admin'],
                         ],
-                        /*'A2' => [
-                            'label' => 'Notification',
-                            'route' => 'backend.notification.index',
-                            'icon' => 'fa fa-bell',
-                            'roles' => ['admin'],
-                        ],*/
                         'A3' => [
                             'label' => 'My Account',
                             'route' => 'backend.useraccount.index',
@@ -56,60 +50,24 @@ class BaseConfig
                            'icon' => 'fa fa-map-signs',
                            'roles' => ['admin'],
                         ],
-                        /*'B1' => [
-                            'label' => 'Content Type & Category',
-                            'route' => 'backend.contenttype.index',
-                            'icon' => 'fa fa-file-code-o',
-                            'roles' => ['admin'],
-                        ],*/
                         'B4' => [
                             'label' => 'Banner Image',
                             'route' => 'backend.bannerimages.index',
                             'icon' => 'fa fa-picture-o',
                             'roles' => ['admin'],
                         ],
-                        /*'B9' => [
-                            'label' => 'Unique Selling Point',
-                            'route' => 'backend.uniquesellingpoint.index',
-                            'icon' => 'fa fa-lightbulb-o',
-                            'roles' => ['admin'],
-                        ],*/
                         'B3' => [
                             'label' => 'FAQ',
                             'route' => 'backend.faq.index',
                             'icon' => 'fa fa-question-circle',
                             'roles' => ['admin'],
                         ],
-                        /*'B5' => [
-                            'label' => 'Ads',
-                            'route' => 'backend.advertisements.index',
-                            'icon' => 'fa fa-bullhorn',
-                            'roles' => ['admin'],
-                        ],*/
-                        /*'B6' => [
-                            'label' => 'Contact Form',
-                            'route' => 'backend.contactmessage.index',
-                            'icon' => 'fa fa-envelope-o',
-                            'roles' => ['admin'],
-                        ],*/
-                        /*'B2' => [
-                            'label' => 'Content',
-                            'route' => 'backend.content.index',
-                            'icon' => 'fa fa-file-code-o',
-                            'roles' => ['admin'],
-                        ],*/
                         'B7' => [
                             'label' => 'General Setting',
                             'route' => 'backend.settings.view',
                             'icon' => 'fa fa-cogs',
                             'roles' => ['admin'],
                         ],
-                        /*'B8' => [
-                            'label' => 'Email Setting',
-                            'route' => 'backend.emailsettings.index',
-                            'icon' => 'fa fa-envelope',
-                            'roles' => ['admin'],
-                        ],*/
                     ]
                 ],
                 'C' => [
@@ -132,18 +90,6 @@ class BaseConfig
                     'icon' => 'fa-male',
                     'roles' => ['admin'],
                     'submenu' => [
-                        /*'D2' => [
-                            'label' => 'Performer Candidate',
-                            'route' => 'backend.performer-candidate.index',
-                            'icon' => 'fa fa-male',
-                            'roles' => ['admin'],
-                        ],
-                        'D3' => [
-                            'label' => 'Collaboration Summary',
-                            'route' => 'backend.performer-group.index',
-                            'icon' => 'fa fa-users',
-                            'roles' => ['admin'],
-                        ],*/
                         'D1' => [
                             'label' => 'Performer (Line Up)',
                             'route' => 'backend.performer.index',
@@ -184,12 +130,6 @@ class BaseConfig
                             'icon' => 'fa fa-picture-o',
                             'roles' => ['admin'],
                         ],
-                        /*'G2' => [
-                            'label' => 'Location',
-                            'route' => 'backend.attraction.index',
-                            'icon' => 'fa fa-eye',
-                            'roles' => ['admin'],
-                        ]*/
                     ]
                 ],
                 'F' => [
@@ -206,70 +146,6 @@ class BaseConfig
                         ]
                     ]
                 ],
-                // 'H' => [
-                //     'label' => 'Interaction',
-                //     'route' => '',
-                //     'icon' => 'fa-bullhorn',
-                //     'roles' => ['admin'],
-                //     'submenu' => [
-                //         'H1' => [
-                //             'label' => 'Volunteer',
-                //             'route' => 'backend.participant.index',
-                //             'icon' => 'fa fa-hand-peace-o',
-                //             'roles' => ['admin'],
-                //         ],
-                //         'H2' => [
-                //             'label' => 'Volunteer Question',
-                //             'route' => 'backend.surveyquestion.index',
-                //             'icon' => 'fa fa-question-circle-o',
-                //             'roles' => ['admin'],
-                //         ],
-                //         'H3' => [
-                //             'label' => 'Survey Answer',
-                //             'route' => 'backend.surveyanswer.index',
-                //             'icon' => 'fa fa-question-circle-o',
-                //             'roles' => ['admin'],
-                //         ],
-                //         'H4' => [
-                //             'label' => 'Event Review',
-                //             'route' => 'backend.eventreview.index',
-                //             'icon' => 'fa fa-star',
-                //             'roles' => ['admin'],
-                //         ]
-                //     ]
-                // ],
-                // 'I' => [
-                //     'label' => 'Master Data',
-                //     'route' => '',
-                //     'icon' => 'fa-book',
-                //     'roles' => ['admin'],
-                //     'submenu' => [
-                //         'I3' => [
-                //             'label' => 'Provinces',
-                //             'route' => 'backend.province.index',
-                //             'icon' => 'fa fa-map-o',
-                //             'roles' => ['admin'],
-                //         ],
-                //         'I4' => [
-                //             'label' => 'Cities',
-                //             'route' => 'backend.city.index',
-                //             'icon' => 'fa fa-map-o',
-                //             'roles' => ['admin'],
-                //         ],
-                //         'I5' => [
-                //             'label' => 'Kecamatan',
-                //             'route' => 'backend.kecamatan.index',
-                //             'icon' => 'fa fa-map-o',
-                //             'roles' => ['admin'],
-                //         ],
-                //         'I6' => [
-                //             'label' => 'Kelurahan',
-                //             'route' => 'backend.kelurahan.index',
-                //             'icon' => 'fa fa-map-o',
-                //             'roles' => ['admin'],
-                //         ]
-                //     ]
-                // ],
                 'J' => [
                     'label' => 'Discussion',
                     'route' => '',

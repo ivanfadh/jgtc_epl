@@ -88,9 +88,9 @@ class ContentAttachmentController extends BackendController
             if (endsWith('.show', $this->routeDefaultIndex) &&
                 !empty($this->topLevelRelationModelString)) {
                 // custom detail return
-                $topLevelRelationObject = $baseObj->getAttribute($this->topLevelRelationModelString);
-                if ($topLevelRelationObject) {
-                    return Redirect::route($this->routeDefaultIndex, ['id' => $topLevelRelationObject->id]);
+                $topLevelRelationObj = $baseObj->getAttribute($this->topLevelRelationModelString);
+                if ($topLevelRelationObj) {
+                    return Redirect::route($this->routeDefaultIndex, ['id' => $topLevelRelationObj->id]);
                 }
             }
         }

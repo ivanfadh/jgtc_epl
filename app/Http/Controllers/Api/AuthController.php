@@ -86,9 +86,8 @@ class AuthController extends BaseController
         if ($userToken) {
             if ($userToken->delete()) {
                 return $this->toJson(200, ['message' => 'Logout Success, session ended']);
-            } else {
-                return $this->toJson(400, ['message' => 'Invalid token!']);
             }
+            return $this->toJson(400, ['message' => 'Invalid token!']);
         }
 
         return $this->toJson(400, ['message' => 'Logout Failed, there is no logged in user in current session!']);

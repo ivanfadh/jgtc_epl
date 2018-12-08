@@ -129,11 +129,10 @@ class UserController extends BackendController
             !empty($param['password_confirmation']) &&
             ($param['password'] == $param['password_confirmation']) ) {
             $param['password'] = Hash::make($param['password']);
-        } else {
-            $this->showNotification(self::
-                ERROR_NOTIFICATION, $baseObj->getLabel() . ' Created', 'Password confirmation does not match');
-            return redirect()->back()->withInput();
-        }
+        } 
+        $this->showNotification(self::
+            ERROR_NOTIFICATION, $baseObj->getLabel() . ' Created', 'Password confirmation does not match');
+        return redirect()->back()->withInput();
         if (isset($param['birthdate']) && strtotime($param['birthdate']) < 0) {
             $param['birthdate'] = Carbon::now()->subYears(18)->toDateTimeString();
         }
@@ -152,45 +151,42 @@ class UserController extends BackendController
             );
             if (Route::has($this->routeBaseName . '.show')) {
                 return Redirect::route($this->routeBaseName . '.show', ['id' => $baseObj->id]);
-            } else {
-                if (!empty($this->routeDefaultIndex)) {
-                    return Redirect::route($this->routeDefaultIndex);
-                }
-                return Redirect::route($this->routeBaseName . '.index');
+            } 
+            if (!empty($this->routeDefaultIndex)) {
+                return Redirect::route($this->routeDefaultIndex);
             }
+            return Redirect::route($this->routeBaseName . '.index');
         }
         return Redirect::route($this->routeBaseName . '.create')->with('errors', $baseObj->errors)->withInput($param);
     }
 
-    public function postUpdate($id)
+    public function postUpdate($ids)
     {
         // Save
         $param = Input::all();
-        $baseObj = $this->baseModel->find($id);
+        $baseObj = $this->baseModel->find($ids);
         if ($baseObj) {
             // Password is set
             if (!empty($param['password']) &&
                 !empty($param['password_confirmation']) &&
                 ($param['password'] == $param['password_confirmation'])) {
                 $param['password'] = Hash::make($param['password']);
-            } else { // Password is not set
-                if (empty($param['password']) && empty($param['password_confirmation'])) {
-                    $param['password'] = $baseObj->password;
-                } else {
-                    $this->showNotification(
-                        self::
-                        ERROR_NOTIFICATION,
-                        $baseObj->getLabel() . ' Created',
-                        'Password confirmation does not match'
-                    );
-                    return redirect()->back()->withInput();
-                }
-            }
+            } 
+            if (empty($param['password']) && empty($param['password_confirmation'])) {
+                $param['password'] = $baseObj->password;
+            } 
+            $this->showNotification(
+                self::
+                ERROR_NOTIFICATION,
+                $baseObj->getLabel() . ' Created',
+                'Password confirmation does not match'
+            );
+            return redirect()->back()->withInput();
         }
         if (isset($param['birthdate']) && strtotime($param['birthdate']) < 0) {
             $param['birthdate'] = Carbon::now()->subYears(18)->toDateTimeString();
         }
-        $result = $this->baseRepository->update($id, $param, $baseObj);
+        $result = $this->baseRepository->update($ids, $param, $baseObj);
         // Return
         if ($result) {
             $this->showNotification(
@@ -200,13 +196,12 @@ class UserController extends BackendController
                 $baseObj->getLabel() . ' data had been updated!'
             );
             if (Route::has($this->routeBaseName . '.show')) {
-                return Redirect::route($this->routeBaseName . '.show', ['id' => $id]);
-            } else {
-                if (!empty($this->routeDefaultIndex)) {
-                    return Redirect::route($this->routeDefaultIndex);
-                }
-                return Redirect::route($this->routeBaseName . '.index');
+                return Redirect::route($this->routeBaseName . '.show', ['id' => $ids]);
+            } 
+            if (!empty($this->routeDefaultIndex)) {
+                return Redirect::route($this->routeDefaultIndex);
             }
+            return Redirect::route($this->routeBaseName . '.index');
         }
         if ($baseObj == null) {
             App::abort(404);
@@ -214,7 +209,7 @@ class UserController extends BackendController
         return Redirect::
         route(
             $this->routeBaseName . '.update',
-            ['id' => $id]
+            ['id' => $ids]
         )->with('errors', $baseObj->errors)->withInput($param);
     }
 }

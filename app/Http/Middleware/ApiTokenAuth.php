@@ -16,7 +16,7 @@ class ApiTokenAuth
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = null)
+    public function handle($request, Closure $next)
     {
         $token = $request->get('token');
         $userToken = UserToken::where('token', '=', $token)->with('user')->first();

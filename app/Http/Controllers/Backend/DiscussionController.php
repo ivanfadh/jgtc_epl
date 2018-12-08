@@ -20,9 +20,9 @@ class DiscussionController extends BackendController
      * @param  Discussion $_baseModel
      * @return void
      */
-    public function __construct(DiscussionRepository $_baseRepo, Discussion $_baseModel)
+    public function __construct(DiscussionRepository $baseRepo, Discussion $baseModel)
     {
-        parent::__construct($_baseRepo, $_baseModel);
+        parent::__construct($baseRepo, $baseModel);
         $this->routeBaseName = "backend.discussions";
         $this->routeDefaultIndex = "backend.discussions.index";
         $this->viewBaseClosure = "backend.admin.discussions";

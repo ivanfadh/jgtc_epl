@@ -65,9 +65,8 @@ class PerformerCandidateController extends BackendController
             );
             if (Route::has($this->routeBaseName . '.show')) {
                 return Redirect::route($this->routeBaseName . '.show', ['id' => $baseObj->id]);
-            } else {
-                return $this->returnToRootIndex($baseObj);
             }
+            return $this->returnToRootIndex($baseObj);
         }
         $this->showNotification(
             self::
@@ -78,7 +77,7 @@ class PerformerCandidateController extends BackendController
         return Redirect::route($this->routeBaseName . '.create')->with('errors', $baseObj->errors)->withInput($param);
     }
 
-    public function postUpdate($id)
+    public function postUpdate($ids)
     {
         // Save
         $param = Input::all();
@@ -86,7 +85,7 @@ class PerformerCandidateController extends BackendController
         if ($param['type'] != 'collab') {
             $param['collab_type'] = null;
         }
-        $result = $this->baseRepository->update($id, $param, $baseObj);
+        $result = $this->baseRepository->update($ids, $param, $baseObj);
         if ($baseObj->uploadError) {
             $this->showNotification(
                 self::
@@ -104,10 +103,9 @@ class PerformerCandidateController extends BackendController
                 'Successfully update ' . strtolower($baseObj->_label) . '.'
             );
             if (Route::has($this->routeBaseName . '.show')) {
-                return Redirect::route($this->routeBaseName . '.show', ['id' => $id]);
-            } else {
-                return $this->returnToRootIndex($baseObj);
-            }
+                return Redirect::route($this->routeBaseName . '.show', ['id' => $ids]);
+            } 
+            return $this->returnToRootIndex($baseObj);
         }
         if ($baseObj == null) {
             App::abort(404);
@@ -119,6 +117,6 @@ class PerformerCandidateController extends BackendController
             $baseObj->errors->first()
         );
         return Redirect::
-        route($this->routeBaseName . '.update', ['id' => $id])->with('errors', $baseObj->errors)->withInput($param);
+        route($this->routeBaseName . '.update', ['id' => $ids])->with('errors', $baseObj->errors)->withInput($param);
     }
 }

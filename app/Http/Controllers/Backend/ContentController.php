@@ -20,9 +20,9 @@ class ContentController extends BackendController
      * @param  Content $_baseModel
      * @return void
      */
-    public function __construct(ContentRepository $_baseRepo, Content $_baseModel)
+    public function __construct(ContentRepository $baseRepo, Content $baseModel)
     {
-        parent::__construct($_baseRepo, $_baseModel);
+        parent::__construct($baseRepo, $baseModel);
         $this->routeBaseName = "backend.content";
         $this->routeDefaultIndex = "backend.content.index";
         $this->viewBaseClosure = "backend.admin.contents";

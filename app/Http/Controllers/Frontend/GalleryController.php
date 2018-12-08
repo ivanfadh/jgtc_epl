@@ -30,8 +30,6 @@ class GalleryController extends BaseController
                                 ->get();
         
         return view('frontend.gallery.index', compact(
-            'gallery_videos',
-            'gallery_images',
             'performers',
             'menus',
             'footer'

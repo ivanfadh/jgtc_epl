@@ -14,7 +14,7 @@ class ApiAuthorization
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = null)
+    public function handle($request, Closure $next)
     {
         $apiHashKey = md5(env('API_PUBLIC_KEY', 'Suitmedia') . '+' . env('API_SECRET_KEY', 'SuitmediaMMXVII'));
         if ($request->header('X-PublicKey') != env('API_PUBLIC_KEY') ||

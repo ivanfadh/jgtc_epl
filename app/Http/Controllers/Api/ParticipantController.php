@@ -16,7 +16,7 @@ use Validator;
 
 class ParticipantController extends BaseController
 {
-    protected $participantAnswerRepository;
+    protected $participantAnswerRep;
     protected $generalRepo;
     protected $defaultParams = [
         'orderBy' => 'position_order,name',
@@ -32,10 +32,10 @@ class ParticipantController extends BaseController
     public function __construct(
         ParticipantRepository $repository,
         Participant $model,
-        ParticipantAnswerRepository $participantAnswerRepository,
+        ParticipantAnswerRepository $participantAnswerRep,
         GeneralInstanceRepository $generalRepo
     ) {
-        $this->participantAnswerRepository = $participantAnswerRepository;
+        $this->participantAnswerRepository = $participantAnswerRep;
         $this->generalRepo = $generalRepo;
         parent::__construct($repository, $model);
     }
@@ -76,7 +76,7 @@ class ParticipantController extends BaseController
                 'city_id' => $request->city,
                 'position_order' => 0
             ];
-            $result = $this->repository->create($params, $baseObject);
+            $result = $this->repository->create($params);
 
             if ($result == false) {
                 return $this->toJson(400, [
@@ -175,7 +175,7 @@ class ParticipantController extends BaseController
                 'city_id' => $request->city,
                 'position_order' => 0
             ];
-            $result = $this->repository->create($params, $baseObject);
+            $result = $this->repository->create($params);
 
             if ($result == false) {
                 return $this->toJson(400, [

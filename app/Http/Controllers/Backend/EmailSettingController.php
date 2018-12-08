@@ -15,15 +15,15 @@ class EmailSettingController extends BackendController
      * @return void
      */
     public function __construct(
-        EmailSettingRepository $_baseRepo,
-        EmailSetting $_baseModel
+        EmailSettingRepository $baseRepo,
+        EmailSetting $baseModel
     ) {
-        parent::__construct($_baseRepo, $_baseModel);
+        parent::__construct($baseRepo, $baseModel);
         $this->routeBaseName = "backend.emailsettings";
         $this->routeDefaultIndex = "backend.emailsettings.index";
         $this->viewBaseClosure = "backend.admin.emailsettings";
         $this->viewInstanceName = 'baseObject';
-        $this->menuRepo = $_baseRepo;
+        $this->menuRepo = $baseRepo;
         // page ID
         $this->pageId = 'B8';
         \View::share('pageId', $this->pageId);

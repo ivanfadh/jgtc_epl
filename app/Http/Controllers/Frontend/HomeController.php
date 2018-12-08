@@ -25,17 +25,9 @@ class HomeController extends BaseController
      **/
     public function index()
     {
-        $menus = DynamicMenu::where('position', 'web-header')
-            ->where('status', 'active')
-            ->orderBy('position_order')
-            ->get();
-        $tickets = BannerImage::where('type', 'ticket')
-            ->where('status', BannerImage::STATUS_ACTIVE)
-            ->orderBy('position_order')
-            ->get();
-        $performers = Performer::where('is_visible', Performer::STATUS_VISIBLE)
-            ->orderBy('position_order')
-            ->get();
+        $menus = DynamicMenu::where('position', 'web-header')->where('status', 'active')->orderBy('position_order')->get();
+        $tickets = BannerImage::where('type', 'ticket')->where('status', BannerImage::STATUS_ACTIVE)->orderBy('position_order')->get();
+        $performers = Performer::where('is_visible', Performer::STATUS_VISIBLE)->orderBy('position_order')->get();
 
         $scheduleOnStages = Schedule::select(
             'schedules.*',
@@ -81,25 +73,13 @@ class HomeController extends BaseController
         $profileImage = settings('profile_image', '');
         $footer = settings('footer-description', '');
 
-        $preEvents = Schedule::where('event_type', 'pre')
-            ->where('is_visible', Schedule::STATUS_VISIBLE)
-            ->orderBy('start_date')
-            ->get();
+        $preEvents = Schedule::where('event_type', 'pre')->where('is_visible', Schedule::STATUS_VISIBLE)->orderBy('start_date')->get();
 
-        $merchandises = BannerImage::where('type', 'merch')
-            ->where('status', 'active')
-            ->orderBy('position_order')
-            ->get();
+        $merchandises = BannerImage::where('type', 'merch')->where('status', 'active')->orderBy('position_order')->get();
 
-        $organizerSponsors = Sponsor::where('type', 'organizer')
-            ->where('is_visible', Sponsor::STATUS_VISIBLE)
-            ->orderBy('position_order')
-            ->get();
+        $organizerSponsors = Sponsor::where('type', 'organizer')->where('is_visible', Sponsor::STATUS_VISIBLE)->orderBy('position_order')->get();
 
-        $supporterSponsors = Sponsor::where('type', 'supporter')
-            ->where('is_visible', Sponsor::STATUS_VISIBLE)
-            ->orderBy('position_order')
-            ->get();
+        $supporterSponsors = Sponsor::where('type', 'supporter')->where('is_visible', Sponsor::STATUS_VISIBLE)->orderBy('position_order')->get();
 
         $ticketSponsors = Sponsor::where('type', 'official-ticketing')
             ->where('is_visible', Sponsor::STATUS_VISIBLE)
@@ -116,9 +96,9 @@ class HomeController extends BaseController
             'faqs',
             'merchandises',
             'performers',
-            'performerschedules',
+//            'performerschedules',
             'preEvents',
-            'sponsors',
+//           'sponsors',
             'tickets',
             'history',
             'historyImage',
@@ -135,8 +115,8 @@ class HomeController extends BaseController
             'supporterSponsors',
             'organizerSponsors',
             'ticketSponsors',
-            'mediaSponsors',
-            'faqs1'
+            'mediaSponsors'
+ //           'faqs1'
         ));
     }
 }

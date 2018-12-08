@@ -137,11 +137,10 @@ class PerformerCandidateController extends BaseController
                     'message' => 'List of support artist retrieved!',
                     'result' => $paginateData,
                 ]);
-            } else {
-                return $this->toJson(200, [
-                    'message' => 'Empty list of support artist!',
-                ]);
-            }
+            } 
+            return $this->toJson(200, [
+                'message' => 'Empty list of support artist!',
+            ]);
         }
 
         $this->defaultParams['type'] = 'collab';

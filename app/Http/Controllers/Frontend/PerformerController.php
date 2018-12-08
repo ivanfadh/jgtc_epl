@@ -17,7 +17,7 @@ class PerformerController extends BaseController
      *
      * @return View
      **/
-    public function show($id)
+    public function show($ids)
     {
         $menus = DynamicMenu::where('position', 'web-header')
                             ->where('status', 'active')
@@ -25,7 +25,7 @@ class PerformerController extends BaseController
                             ->get();
         $footer = settings('footer-description', '');
 
-        $performers = Performer::where('id', $id)
+        $performers = Performer::where('id', $ids)
                                 ->with('galleries')
                                 ->get();
         $profileImage = settings('profile_image', '');
