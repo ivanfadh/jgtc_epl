@@ -532,7 +532,7 @@ class User extends SuitModel implements AuthenticatableContract, CanResetPasswor
     {
         return [self::ADMIN => "Admin",
                 //self::CSOFFICER => "CS Officer",
-                self::USER => "User"
+                //self::USER => "User"
         ];
     }
 

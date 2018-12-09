@@ -48,6 +48,20 @@ return [
             'root'   => storage_path('app'),
         ],
 
+        'public' => [
+            'driver'   => 'local',
+            'root'     => public_path().'/img/foto',
+            'url' => env('APP_URL').'/public',
+            'visibility' => 'public',
+
+            // Optional FTP Settings...
+            // 'port'     => 21,
+            // 'root'     => '',
+            // 'passive'  => true,
+            // 'ssl'      => true,
+            // 'timeout'  => 30,
+        ], 
+
         'ftp' => [
             'driver'   => 'ftp',
             'host'     => 'ftp.example.com',

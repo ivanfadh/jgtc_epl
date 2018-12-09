@@ -6,10 +6,12 @@
         <figure class="section-deco bg-bass-man">
             <img src="{{ asset('frontend/assets/img/blank.png') }}" alt="" class="item-heavy" data-original="{{ asset('frontend/assets/img/bass-man.png') }}">
         </figure>
+
         <div class="container">
             <div class="section-head text-center">
                 <h2 class="h1 font-secondary text-caps text-white">Find The Answer</h2>
             </div>
+            
             <div class="mb-64">
                 <h3 class="text-yellowwhite text-caps text-center">
                     Frequently Asked Questions
@@ -30,8 +32,24 @@
                         </div>
                     </div>
                     @endforeach
+                    <div class="accordeon__item">
+                        <button class="btn btn-accordeon rounded" type="button">
+                            <span class="btn-text">
+                                Put you unanswered question here. 
+                            </span>
+                            <span class="btn-icon fa fa-angle-down" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordeon-content">
+                            <p>
+                                <input name="firstname" type="text" placeholder="Email, please?"><br><br>
+                                <textarea name="message" rows="5" cols="123" placeholder="Drop your question here."></textarea><br><br>
+                                <input type="submit">
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
+
             <div class="mb-64" id="venue">
                 <h3 class="text-yellowwhite text-caps text-center">
                     JGTC 2018 SITEPLAN

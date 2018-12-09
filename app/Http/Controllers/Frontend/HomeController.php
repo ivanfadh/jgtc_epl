@@ -25,6 +25,7 @@ class HomeController extends BaseController
      **/
     public function index()
     {
+
         $menus = DynamicMenu::where('position', 'web-header')->where('status', 'active')->orderBy('position_order')->get();
         $tickets = BannerImage::where('type', 'ticket')->where('status', BannerImage::STATUS_ACTIVE)->orderBy('position_order')->get();
         $performers = Performer::where('is_visible', Performer::STATUS_VISIBLE)->orderBy('position_order')->get();
