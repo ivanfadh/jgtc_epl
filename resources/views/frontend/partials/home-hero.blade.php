@@ -9,7 +9,7 @@
 			The Oldest &amp; Most Celebrated International Jazz Festival in Indonesia
 		</h4>
 		<a href="#ticket" class="text-caps btn btn--brightblue">Buy Ticket</a>
-		<div class="countdown" data-enddate="Dec 2, 2018 13:00:00">
+		<div class="countdown" data-enddate="Dec 31, 2018 13:00:00">
 			<div class="countdown__timer">
 				<div class="countdown__item">
                     <div class="time">&middot;&middot;&middot;</div>

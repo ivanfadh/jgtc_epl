@@ -16,31 +16,46 @@
                         <div class="page-head__title text-center text-caps">
                             <h3 class="mb-0 font-normal text-maroon">For Sell</h3>
                             <h1 class="text-caps font-secondary main-title">
-                                <span>Merchandise</span>
+                                <span>TICKET</span>
                             </h1>
                         </div>
                     </div>
                 </div>
                 <div class="container">
-                    <div class="mb-24 bzg">
-                        @foreach ($merchandises as $merchandise)
-                        <div class="block bzg_c text-center" data-col="m3">
-                            <h4 class="mb-0"><a href="{{ $merchandise->url }}" class="link-black text-ellipsis" target="_blank">
-                                {{ $merchandise->title }}
-                            </a></h4>
-                            <p class="mb-0 text-grey">{{ $merchandise->text }}</p>
-                            <a href="{{ $merchandise->url }}" class="btn btn--block btn--iconic link-maroon" title="Add to Cart" target="_blank">
-                                <span class="fas fa-shopping-cart" aria-hidden="true"></span>
-                            </a>
-                            <figure>
-                                <a href="{{ $merchandise->url }}" target="_blank">
-                                    <img src="{{ $merchandise->filename_merch }}" alt="{{ $merchandise->title }}">
-                                </a>
-                            </figure>
+                <div class="accordeon">
+                    <div class="accordeon__item">
+                        <button class="btn btn-accordeon rounded" type="button">
+                            <span class="btn-text">
+                            <strong>BOOK NOW!</strong>
+                            </span>
+                            <span class="btn-icon fa fa-angle-down" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordeon-content">
+                                <p>
+                                <input name="firstname" type="text" placeholder="Name"><br><br>
+                                <input name="firstname" type="number" placeholder="Identity Number"><br><br>
+                                <input name="firstname" type="text" placeholder="Email"><br><br>
+                                <input name="firstname" type="number" placeholder="Phone Number"><br><br>
+                                <!-- <textarea name="message" rows="5" cols="123" placeholder="Drop your question here."></textarea><br><br> -->
+                                Jumlah Tiket : 
+                                <select class="form-control" id="exampleFormControlSelect1">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                </select> <br><br>
+                                Pembayaran : 
+                                <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Online</option>
+                                <option>Offline</option>
+                                </select> <br><br>
+                                <input type="submit">
+                                 </p>
                         </div>
-                        @endforeach
                     </div>
                 </div>
+                <br>
             </main>
         </div>
         <div class="sticky-footer-container-item">

@@ -13,14 +13,15 @@
 						</a>
 					</h4>
 					<p class="mb-0 text-grey">{{ $merchandise->text }}</p>
+					
+					<figure>
+						<a href="{{ $merchandise->url }}" target="_blank">
+							<img src="{{ asset('frontend/assets/img/'.basename($merchandise->filename)) }}" alt="{{ $merchandise->filename }}">
+						</a>
+					</figure>
 					<a href="{{ $merchandise->url }}" class="btn btn--block btn--iconic link-maroon" title="Add to Cart" target="_blank">
 						<span class="fas fa-shopping-cart" aria-hidden="true"></span>
 					</a>
-					<figure>
-						<a href="{{ $merchandise->url }}" target="_blank">
-							<img src="{{ $merchandise->filename_merch }}" alt="{{ $merchandise->title }}">
-						</a>
-					</figure>
 				</div>
 				@endforeach
 			</div>

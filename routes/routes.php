@@ -483,3 +483,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::any('elfinder/connector', 'Barryvdh\Elfinder\ElfinderController@showConnector');
     Route::get('elfinder/tinymce', 'Barryvdh\Elfinder\ElfinderController@showTinyMCE4');
 });
+
+Route::get('/upload', function(){
+    return view('upload');
+});
+Route::post('/upload/up', 'Frontend\HomeController@update');

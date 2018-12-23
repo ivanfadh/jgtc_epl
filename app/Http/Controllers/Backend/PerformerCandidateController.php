@@ -20,7 +20,7 @@ class PerformerCandidateController extends BackendController
      * @return void
      */
     public function __construct(PerformerCandidateRepository $_baseRepo, PerformerCandidate $_baseModel)
-    {
+    { //kompleksitas :1
         parent::__construct($_baseRepo, $_baseModel);
         $this->routeBaseName = "backend.performer-candidate";
         $this->routeDefaultIndex = "backend.performer-candidate.index";
@@ -35,7 +35,7 @@ class PerformerCandidateController extends BackendController
         \View::share('viewBaseClosure', $this->viewBaseClosure);
     }
 
-    public function postCreate()
+    public function postCreate() //kompleksitas :5
     {
         // Save
         $param = Input::all();
@@ -77,7 +77,7 @@ class PerformerCandidateController extends BackendController
         return Redirect::route($this->routeBaseName . '.create')->with('errors', $baseObj->errors)->withInput($param);
     }
 
-    public function postUpdate($ids)
+    public function postUpdate($ids) //kompleksitas :5
     {
         // Save
         $param = Input::all();

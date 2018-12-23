@@ -43,7 +43,7 @@ class UserController extends BackendController
      * @param  User $_baseModel
      * @return void
      */
-    public function __construct(UserRepository $_baseRepo, User $_baseModel)
+    public function __construct(UserRepository $_baseRepo, User $_baseModel) //kompleksitas :1
     {
         parent::__construct($_baseRepo, $_baseModel);
         $this->routeBaseName = "backend.user";
@@ -100,7 +100,7 @@ class UserController extends BackendController
      * @param
      * @return \Illuminate\View\View
      */
-    public function getCreate()
+    public function getCreate() //kompleksitas : 1
     {
         $param = Input::all();
         $baseObj = $this->baseModel;
@@ -113,7 +113,7 @@ class UserController extends BackendController
         return view($this->viewBaseClosure . '.create')->with($this->viewInstanceName, $baseObj);
     }
 
-    public function postCreate()
+    public function postCreate() ////kompleksitas : 6
     {
         // Save
         $param = Input::all();
@@ -160,7 +160,7 @@ class UserController extends BackendController
         return Redirect::route($this->routeBaseName . '.create')->with('errors', $baseObj->errors)->withInput($param);
     }
 
-    public function postUpdate($ids)
+    public function postUpdate($ids) //kompleksitas : 8
     {
         // Save
         $param = Input::all();

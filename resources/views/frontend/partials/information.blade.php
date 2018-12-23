@@ -75,12 +75,19 @@
                                 <img src="{{ asset('frontend/assets/img/blank.png') }}" data-original="{{ $siteplan1 }}" alt="site plan 1" class="item-heavy">
                             </div>
                             <div class="tab-panel__item" id="map2">
-                                <img src="{{ asset('frontend/assets/img/blank.png') }}" data-original="{{ $siteplan2 }}" alt="site plan 2" class="item-heavy">
+                                <!-- <img src="{{ asset('frontend/assets/img/blank.png') }}" data-original="{{ $siteplan1 }}" alt="site plan 2" class="item-heavy"> -->
+                                <iframe
+                                width="600"
+                                height="450"
+                                frameborder="0" style="border:0"
+                                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBuz4HNPGgtlgYzRwXtr3C9zphrPjE_SX0
+                                    &q=Gedung+A,FEB+Universitas+Indonesia" allowfullscreen>
+                                </iframe>
                             </div>
                         </div>
                     </div>
                     
-                    <img src="{{ asset('frontend/assets/img/blank.png') }}" alt="" class="item-heavy" data-original="{{ asset('frontend/assets/img/site-plan-soon.png') }}">
+                    <!-- <img src="{{ asset('frontend/assets/img/site-plan.png') }}" alt="" class="item-heavy" data-original="{{ asset('frontend/assets/img/site-plan-soon.png') }}"> -->
                     
                 </div>
             </div>

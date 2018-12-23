@@ -84,6 +84,13 @@ return [
             'bucket' => 'your-bucket',
         ],
 
+        'public' => [
+            'driver' => 'local',
+            'root' => public_path().'/frontend/assets/img',
+            'url' => env('APP_URL').'/public',
+            'visibility' => 'public',
+        ],
+
         'rackspace' => [
             'driver'    => 'rackspace',
             'username'  => 'your-username',

@@ -2,7 +2,7 @@
     <div class="container">
         <h1 class="sr-only">JGTC 2018</h1>
         <a href="{{ url('/') }}" class="site-logo">
-            <img src="{{ $profileImage }}" alt="JGTC">
+            <img src="{{ asset('frontend/assets/img/Logo-JGTC.png') }}" alt="JGTC">
         </a>
         <h2 class="site-desc">The Oldest &amp; Most Celebrated International Jazz Festival in Indonesia</h2>
         <div class="site-action">

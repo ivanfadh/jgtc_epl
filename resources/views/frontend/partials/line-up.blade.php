@@ -44,8 +44,8 @@
 			<div class="section-content">
 				<h2 class="h1 font-secondary text-caps text-grey" id="schedule">JGTC Rundown</h2>
 				@if(count($scheduleOnStages)>0)
-				@foreach($scheduleOnStages as $stage_name => $schedules)
 				<div class="bzg">
+				@foreach($scheduleOnStages as $stage_name => $schedules)
 					<div class="block bzg_c" data-col="m6, l3">
 						<div class="full-height rounded bg-white shadow p-16 text-center">
 							<h3 class="h2 mb-8 text-maroon text-caps">
@@ -68,8 +68,8 @@
 							</table>
 						</div>
 					</div>
-				</div>
 				@endforeach
+				</div>
 				@else
 				<div class="text-center">
 					<img src="{{ asset('frontend/assets/img/blank.png') }}" alt="" class="item-heavy" data-original="{{ asset('frontend/assets/img/run-down-soon.png') }}">

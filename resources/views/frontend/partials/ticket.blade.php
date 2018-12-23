@@ -8,8 +8,9 @@
     <div class="container">
         <div class="mb-36 text-center">
             <h3 class="no-space font-normal text-maroon text-caps">Go Get it Now!</h3>
-            <h2 class="h1 font-secondary text-grey text-caps">Buy Ticket Online</h2>
+            <h2 class="h1 font-secondary text-grey text-caps">Buy Ticket Online</h2>  
         </div>
+            
         <div class="bzg h-center">
             @foreach ($tickets as $ticket)
             @if($ticket->status === 'inactive')
@@ -38,7 +39,8 @@
             @else
             <div class="bzg_c" data-col="m4">
                 <div class="tickets pt-32 text-center">
-                    <a href="{{ $ticket->url }}" class="is-block text-caps" target="_blank">
+                    <a href="{{ route('frontend.merchandise') }}" class="is-block text-caps" target="_blank">
+                    
                         <img src="{{ asset('frontend/assets/img/ticket.png') }}" width="56" alt="" class="circle ticket-icon">
                         <div class="pl-32 pr-32 ticket-content">
                             <h3 class="mb-16 text-black">
@@ -52,7 +54,11 @@
                             </h4>
                         </div>
                         <span class="is-block p-8 bg-lightgrey text-white label-action">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
                         <strong>Buy Ticket</strong>
+                        </button>
+                        
+                        <!-- <strong>Buy Ticket</strong> -->
                     </span>
                     </a>
                 </div>
@@ -65,3 +71,4 @@
         <img class="item-heavy" src="{{ asset('frontend/assets/img/blank.png') }}" data-original="{{ asset('frontend/assets/img/bg-sky-bottom.png') }}" alt=".">
     </figure>
 </section>
+

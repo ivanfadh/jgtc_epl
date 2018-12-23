@@ -19,7 +19,7 @@
 						<span class="month">{{ \Carbon\carbon::parse($schedule->start_date)->formatLocalized('%b') }}</span>
 					</div>
 					<div class="fig">
-						<img src="{{ $schedule->image_small_pre_event }}" alt="{{ $schedule->title }}">
+						<img src="{{ asset('frontend/assets/img/'.basename($schedule->image)) }}" alt="{{ $schedule->image }}">
 					</div>
 					<div class="schedule__info">
 						<h3 class="h4 title text-caps">
@@ -33,6 +33,10 @@
 							<span class="time-icon far fa-clock"></span>
 							{{ \Carbon\carbon::parse($schedule->start_date)->format('H:i') }}
 						</time>
+						<div class="location">
+							<span class="fa fa-book" style='padding-right:10px'></span>
+							{{ $schedule->description }}
+						</div>
 					</div>
 				</div>
 				@endforeach

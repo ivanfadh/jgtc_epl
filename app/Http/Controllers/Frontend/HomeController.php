@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use Illuminate\Http\Request;
 use App\SuitEvent\Models\BannerImage;
 use App\SuitEvent\Models\DynamicMenu;
 use App\SuitEvent\Models\Faq;
@@ -10,12 +11,30 @@ use App\SuitEvent\Models\Schedule;
 use App\SuitEvent\Models\Settings;
 use App\SuitEvent\Models\Sponsor;
 use App\SuitEvent\Models\Stage;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class HomeController extends BaseController
 {
     public function __construct()
     {
         parent::__construct();
+    }
+
+    public function update(Request $request)
+    {
+        $imageName = $request->file('fileToUpload');
+        if($imageName!==null)
+        {
+            //get the extension
+            $extension = $imageName->getClientOriginalExtension();
+            Storage::disk('public')->put($imageName->getFilename().'.'.$extension, File::get($imageName));
+        }
+        
+        // $preEvents = Schedule::where('title', 'Ticket Sell')->update(['image' => $imageName->getFilename().'.'.$extension]);
+
+
+
     }
 
     /**
@@ -75,13 +94,13 @@ class HomeController extends BaseController
         $footer = settings('footer-description', '');
 
         $preEvents = Schedule::where('event_type', 'pre')->where('is_visible', Schedule::STATUS_VISIBLE)->orderBy('start_date')->get();
-
+                // dd($preEvents);
         $merchandises = BannerImage::where('type', 'merch')->where('status', 'active')->orderBy('position_order')->get();
-
+                // dd($merchandises);
         $organizerSponsors = Sponsor::where('type', 'organizer')->where('is_visible', Sponsor::STATUS_VISIBLE)->orderBy('position_order')->get();
-
+                // dd($organizerSponsors);
         $supporterSponsors = Sponsor::where('type', 'supporter')->where('is_visible', Sponsor::STATUS_VISIBLE)->orderBy('position_order')->get();
-
+                // dd($supporterSponsors);
         $ticketSponsors = Sponsor::where('type', 'official-ticketing')
             ->where('is_visible', Sponsor::STATUS_VISIBLE)
             ->orderBy('position_order')
@@ -120,4 +139,6 @@ class HomeController extends BaseController
  //           'faqs1'
         ));
     }
+
+
 }

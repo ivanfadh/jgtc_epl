@@ -9,7 +9,7 @@
 				@foreach($organizerSponsors as $sponsor)
 				<div class="bzg separator--m v-center">
 					<div class="block bzg_c text-center" data-col="m6">
-						<img src="{{ $sponsor->logo }}" alt="{{ $sponsor->name }}" width="286">
+						<img src="{{ asset('frontend/assets/img/'.basename($sponsor->logo)) }}" alt="{{ $sponsor->name }}" width="286">
 					</div>
 					<div class="block bzg_c" data-col="m6">
 						{{ $sponsor->description }}
@@ -26,7 +26,7 @@
 					@foreach($supporterSponsors as $sponsor)
 					<div class="sponsor__item text-center">
 						<a href="{{ $sponsor->url }}" target="_blank">
-							<img data-lazy="{{ $sponsor->logo }}" alt="{{ $sponsor->name }}">
+							<img data-lazy="{{ asset('frontend/assets/img/'.basename($sponsor->logo)) }}" alt="{{ $sponsor->name }}">
 						</a>
 					</div>
 					@endforeach
@@ -55,7 +55,7 @@
 					@foreach($mediaSponsors as $sponsor)
 					<div class="sponsor__item text-center">
 						<a href="{{ $sponsor->url }}" target="_blank">
-							<img data-lazy="{{ $sponsor->logo }}" alt="{{ $sponsor->name }}">
+							<img data-lazy="{{ asset('frontend/assets/img/'.basename($sponsor->logo)) }}" alt="{{ $sponsor->name }}">
 						</a>
 					</div>
 					@endforeach
